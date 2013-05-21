@@ -1,0 +1,27 @@
+PATH
+  remote: .
+  specs:
+    alpaca (0.9.0)
+      rack
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (3.1.0)
+      multi_json (~> 1.0)
+    minitest (4.7.4)
+    multi_json (1.7.3)
+    rack (1.5.2)
+    rack-test (0.6.2)
+      rack (>= 1.0)
+    rake (10.0.4)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activesupport (>= 3.0.0)
+  alpaca!
+  minitest
+  rack-test
+  rake
