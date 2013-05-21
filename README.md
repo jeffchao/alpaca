@@ -2,17 +2,9 @@
 
 [![Build Status](https://travis-ci.org/jeffchao/alpaca.png?branch=master)](https://travis-ci.org/jeffchao/alpaca)
 
-![Alpaca](https://raw.github.com/jeffchao/alpaca/master/alpaca.jpeg)
-
 Alpaca (outta nowhere) is a rack middleware that allows developers to quickly and easily configure and manage a whitelist and/or blacklist. The motivation for Alpaca is to address use cases around security concerns such as malicious clients, denial of service, or adding an extra layer of security to an API or a subset of API endpoints.
 
-In progress
-----------
-
-- ~~Global-level whitelist and blacklist~~
-- ~~Configuration and management via YAML~~
-- ~~Whitelist-by-default, blacklist-by-default~~
-- Controller-level whitelist and blacklist via `before_filter`
+![Alpaca](https://raw.github.com/jeffchao/alpaca/master/alpaca.jpeg)
 
 Getting started
 ----------
@@ -60,6 +52,14 @@ Performance (WIP)
 ----------
 
 Through initial testing, Alpaca does not appear to cause noticeable overhead. Future tests under different types of load will be documented here.
+
+In progress
+----------
+
+- ~~Global-level whitelist and blacklist~~
+- ~~Configuration and management via YAML~~
+- ~~Whitelist-by-default, blacklist-by-default~~
+- Controller-level whitelist and blacklist via `before_filter`
 
 Author
 ----------
