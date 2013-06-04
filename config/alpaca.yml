@@ -9,4 +9,4 @@ blacklist:
   - 0.0.0.1
   - 0.0.0.2
   - "2001:db8::/32"
-default: whitelist
+default: allow

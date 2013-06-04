@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rake'
   s.add_development_dependency 'activesupport', '>= 3.0.0'
   s.add_development_dependency 'minitest'
+  s.add_development_dependency 'simplecov'
   s.add_development_dependency 'rack-test'
 end
 

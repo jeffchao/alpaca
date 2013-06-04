@@ -1,5 +1,5 @@
 module Rack
   module Alpaca
-    VERSION = '0.9.0'.freeze
+    VERSION = '1.0.0'
   end
 end

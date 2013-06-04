@@ -64,4 +64,18 @@ describe 'Rack::Alpaca' do
       end
     end
   end
+
+  describe 'allow-by-default' do
+    before do
+      @ips = ["0.0.0.1", "198.18.0.0/15", "::/128"].map { |ip| IPAddr.new(ip) }
+    end
+
+    it 'should permit any IP address' do
+      @ips.each do |ip|
+        get '/', {}, 'REMOTE_ADDR' => ip.to_s
+        last_response.status.must_equal 200
+        last_response.body.must_equal 'foo'
+      end
+    end
+  end
 end
