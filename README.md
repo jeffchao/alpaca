@@ -2,7 +2,7 @@
 
 [![Gem Version](https://badge.fury.io/rb/alpaca.png)](http://badge.fury.io/rb/alpaca)
 [![Build Status](https://travis-ci.org/jeffchao/alpaca.png?branch=master)](https://travis-ci.org/jeffchao/alpaca)
-[![Dependency Status](https://gemnasium.com/jeffchao/alpaca.png)](https://gemnasium.com/jeffchao/alpaca.png)
+[![Dependency Status](https://gemnasium.com/jeffchao/alpaca.png)](https://gemnasium.com/jeffchao/alpaca)
 [![Coverage Status](https://coveralls.io/repos/jeffchao/alpaca/badge.png)](https://coveralls.io/r/jeffchao/alpaca)
 
 Alpaca (outta nowhere) is a rack middleware that allows developers to quickly and easily configure and manage a whitelist and/or blacklist. The motivation for Alpaca is to address use cases around security concerns such as malicious clients, denial of service, or adding an extra layer of security to an API or a subset of API endpoints.
