@@ -7,6 +7,7 @@ require 'rack/alpaca/version'
 Gem::Specification.new do |s|
   s.name = 'alpaca'
   s.version = Rack::Alpaca::VERSION
+  s.license = 'MIT'
 
   s.authors = ["Jeff Chao"]
   s.description = "A rack middleware for whitelisting and blacklisting IPs"
