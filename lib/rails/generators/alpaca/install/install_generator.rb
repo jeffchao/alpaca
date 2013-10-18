@@ -1,7 +1,7 @@
 module Alpaca
   module Generators
     class InstallGenerator < Rails::Generators::Base
-      source_root File.expand_path('../../../../../../config', __FILE__)
+      source_root File.expand_path('../templates', __FILE__)
 
       desc 'Copies an Alpaca configuration file to your application.'
 

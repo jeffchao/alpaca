@@ -1,0 +1,12 @@
+# The defaults below are reserved IPv4 and IPv6 addresses used for testing.
+# Replace the IP addresses in this configuration file with your own.
+
+whitelist:
+  - 0.0.0.1
+  - 198.18.0.0/15
+  - "::/128"
+blacklist:
+  - 0.0.0.1
+  - 0.0.0.2
+  - "2001:db8::/32"
+default: allow
