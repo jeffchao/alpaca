@@ -1,13 +1,13 @@
 module Rack
   module Alpaca
-    @@config ||= YAML.load_file('config/alpaca.yml')
-
     class << self
 
       attr_reader :whitelist, :blacklist
       attr_accessor :default
 
       def new (app)
+        @@config ||= YAML.load_file('config/alpaca.yml')
+
         @app = app
         @whitelist ||= Hash[@@config['whitelist'].map { |ip| [IPAddr.new(ip), true] }].freeze
         @blacklist ||= Hash[@@config['blacklist'].map { |ip| [IPAddr.new(ip), true] }].freeze
