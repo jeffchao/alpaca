@@ -1,15 +1,17 @@
 module Rack
   module Alpaca
+    @@config ||= YAML.load_file('config/alpaca.yml')
+
     class << self
+
       attr_reader :whitelist, :blacklist
       attr_accessor :default
 
       def new (app)
         @app = app
-        config = YAML.load_file('config/alpaca.yml')
-        @whitelist ||= config['whitelist'].map { |ip| IPAddr.new(ip) }.freeze
-        @blacklist ||= config['blacklist'].map { |ip| IPAddr.new(ip) }.freeze
-        @default = config['default']
+        @whitelist ||= Hash[@@config['whitelist'].map { |ip| [IPAddr.new(ip), true] }].freeze
+        @blacklist ||= Hash[@@config['blacklist'].map { |ip| [IPAddr.new(ip), true] }].freeze
+        @default = @@config['default']
 
         self
       end
@@ -39,9 +41,12 @@ module Rack
       end
 
       def check (type, req)
-        instance_variable_get("@#{type}").any? do |ip|
-          ip.include?(req.ip)
-        end
+        req_ip = IPAddr.new(req.ip)
+        !instance_variable_get("@#{type}").select { |k, v| k.include? req_ip }.empty?
+        #instance_variable_get("@#{type}")[req_ip]
+        #instance_variable_get("@#{type}").any? do |ip|
+        #  ip.include?(req.ip)
+        #end
       end
 
       alias_method :whitelisted?, :check

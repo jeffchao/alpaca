@@ -13,13 +13,13 @@ describe 'Rack::Alpaca' do
     end
 
     it 'should have a whitelist' do
-      Rack::Alpaca.whitelist.class.must_equal Array
-      Rack::Alpaca.whitelist.each { |ip| ip.class.must_equal IPAddr }
-      Rack::Alpaca.whitelist.must_equal @ips
+      Rack::Alpaca.whitelist.class.must_equal Hash
+      Rack::Alpaca.whitelist.each { |ip, v| ip.class.must_equal IPAddr }
+      Rack::Alpaca.whitelist.keys.must_equal @ips
     end
 
     it 'should permit IP addresses on the whitelist' do
-      Rack::Alpaca.whitelist.each do |ip|
+      Rack::Alpaca.whitelist.each do |ip, v|
         get '/', {}, 'REMOTE_ADDR' => ip.to_s
         last_response.status.must_equal 200
         last_response.body.must_equal 'foo'
@@ -41,15 +41,15 @@ describe 'Rack::Alpaca' do
     end
 
     it 'should have a blacklist' do
-      Rack::Alpaca.blacklist.class.must_equal Array
-      Rack::Alpaca.whitelist.each { |ip| ip.class.must_equal IPAddr }
-      Rack::Alpaca.blacklist.must_equal @ips
+      Rack::Alpaca.blacklist.class.must_equal Hash
+      Rack::Alpaca.whitelist.each { |ip, v| ip.class.must_equal IPAddr }
+      Rack::Alpaca.blacklist.keys.must_equal @ips
     end
 
     it 'should reject IP addresses on the blacklist' do
-      Rack::Alpaca.blacklist.each do |ip|
+      Rack::Alpaca.blacklist.each do |ip, v|
         get '/', {}, 'REMOTE_ADDR' => ip.to_s
-        unless Rack::Alpaca.whitelist.include? ip
+        unless Rack::Alpaca.whitelist.keys.include? ip
           last_response.status.must_equal 503
           last_response.body.must_equal "Request blocked\n"
         end
