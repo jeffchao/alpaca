@@ -22,7 +22,7 @@ module Rack
         if whitelisted?('whitelist', req)
           @app.call(env)
         elsif blacklisted?('blacklist', req)
-          [503, {}, ["Request blocked\n"]]
+          [503, { "Content-Type"=>"text/plain" }, ["Request blocked\n"]]
         else
           default_strategy(env)
         end
@@ -34,7 +34,7 @@ module Rack
         if @default == 'allow'
           @app.call(env)
         elsif @default == 'deny'
-          [503, {}, ["Request blocked\n"]]
+          [503, { "Content-Type"=>"text/plain" }, ["Request blocked\n"]]
         else
           raise 'Unknown default strategy'
         end
