@@ -1,3 +1,3 @@
 source "https://rubygems.org"
-gem 'coveralls', require: false
+gem 'coveralls', '~> 0.8.15', require: false
 gemspec
