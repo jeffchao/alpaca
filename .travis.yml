@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-  - 2.3.8
+  - 2.6.0
   - ruby-head
 branches:
   only:
