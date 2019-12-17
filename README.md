@@ -1,3 +1,5 @@
+### Project Status: Unmaintained
+
 ## Alpaca (outta nowhere)
 
 [![Gem Version](https://badge.fury.io/rb/alpaca.png)](http://badge.fury.io/rb/alpaca)
