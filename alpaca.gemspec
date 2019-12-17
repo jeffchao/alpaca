@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.summary = %q{Whitelist and blacklist IPs}
   s.test_files = Dir.glob("spec/**/*")
 
-  s.required_ruby_version = '>= 1.9.3'
+  s.required_ruby_version = '>= 2.6.0'
 
   s.add_dependency 'rack'
   s.add_development_dependency 'rake'
