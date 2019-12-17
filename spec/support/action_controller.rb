@@ -4,11 +4,11 @@ module ActionController
   class Metal
     attr_accessor :request, :response
 
-    def process (action)
+    def process(action)
       send(action)
     end
 
-    def render (*args)
+    def render(*args)
       response.status = Rack::Utils.status_code(args.first[:status])
       response.body = [args.first[:text]]
       response

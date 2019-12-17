@@ -5,7 +5,7 @@ module Rack
       attr_reader :whitelist, :blacklist
       attr_accessor :default
 
-      def new (app)
+      def new(app)
         @@config ||= YAML.load_file('config/alpaca.yml')
 
         @app = app
@@ -16,7 +16,7 @@ module Rack
         self
       end
 
-      def call (env)
+      def call(env)
         req = Rack::Request.new(env)
 
         if whitelisted?('whitelist', req)
@@ -30,7 +30,7 @@ module Rack
 
       private
 
-      def default_strategy (env)
+      def default_strategy(env)
         if @default == 'allow'
           @app.call(env)
         elsif @default == 'deny'
@@ -40,7 +40,7 @@ module Rack
         end
       end
 
-      def check (type, req)
+      def check(type, req)
         req_ip = IPAddr.new(req.ip)
         !instance_variable_get("@#{type}").select { |k, v| k.include? req_ip }.empty?
         #instance_variable_get("@#{type}")[req_ip]
