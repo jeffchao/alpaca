@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    alpaca (1.2.1)
+    alpaca (1.2.2)
       rack
 
 GEM
